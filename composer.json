@@ -1,0 +1,42 @@
+{
+    "name": "tanyudii/twilio-laravel",
+    "description": "The wrapper twilio api for Laravel PHP Framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yudi Hertanto",
+            "email": "y.hertanto17@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*",
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^8",
+        "twilio/sdk": "^6.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tanyudii\\TwilioLaravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tanyudii\\TwilioLaravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Tanyudii\\TwilioLaravel\\TwilioLaravelServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

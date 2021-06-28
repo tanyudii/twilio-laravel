@@ -14,6 +14,6 @@ class TwilioService extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'twilio-laravel';
+        return 'twilio-service';
     }
 }

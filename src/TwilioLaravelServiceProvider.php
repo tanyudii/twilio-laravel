@@ -14,12 +14,11 @@ class TwilioLaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->alias('twilio-laravel', TwilioService::class);
-        $this->app->singleton('twilio-laravel', function () {
+        $this->mergeConfigFrom(__DIR__ . "/../config/twilio-laravel.php", "twilio-laravel");
+
+        $this->app->bind("twilio-service", function () {
             return new TwilioService;
         });
-
-        $this->registerPublishing();
     }
 
     /**
@@ -29,21 +28,15 @@ class TwilioLaravelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-    }
-
-    /**
-     * Register the package's publishable resources.
-     *
-     * @return void
-     */
-    private function registerPublishing()
-    {
         if ($this->app->runningInConsole()) {
-            // Lumen lacks a config_path() helper, so we use base_path()
-            $this->publishes([
-                __DIR__.'/../config/twilio-laravel.php' => base_path('config/twilio-laravel.php'),
-            ], 'laravel-twilio-config');
+            $this->publishes(
+                [
+                    __DIR__ . "/../config/twilio-laravel.php" => config_path(
+                        "twilio-laravel.php"
+                    ),
+                ],
+                "twilio-laravel-config"
+            );
         }
     }
 }

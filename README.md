@@ -1,2 +1,2 @@
-# twilio-laravel
-The wrapper twilio for Laravel PHP Framework
+# Twilio Laravel
+The wrapper Twilio for Laravel PHP Framework
